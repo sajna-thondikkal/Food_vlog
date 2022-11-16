@@ -1,0 +1,93 @@
+{% load static %}
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>Avodha-shopping</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'hom/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+<style>
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
+</head>
+<body id="top">
+<!--&lt;!&ndash; Top Background Image Wrapper &ndash;&gt;-->
+<!--<div class="bgded overlay" style="background-image:url({% static 'hom/images/11.png' %});">-->
+<!--  &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+<!--  <div class="wrapper row0">-->
+<!--    <div id="topbar" class="hoc clear">-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--  &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+      <div id="logo" class="fl_left">
+        <!-- ################################################################################################ -->
+        <h1><a href="/">AVODHA SHOPPING</a></h1>
+
+        <!-- ################################################################################################ -->
+      </div>
+      <nav id="mainav" class="fl_right">
+        <!-- ################################################################################################ -->
+        <ul class="clear">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a class="active" href="{% url 'cartDetails' %}">Cart( {{itc}} )</a></li>
+          <li><a class="active" href="{% url 'login_logout' %}">Login/Logout</a></li>
+<!--          <li><a class="active" href="#">Login</a></li>-->
+          <li><a class="active" href="{% url 'register' %}">Register</a></li>
+        </ul>
+        <!-- ################################################################################################ -->
+      </nav>
+    </header>
+  </div>
+  {% block content %}
+  {% endblock %}
+
+</body>
+</html>

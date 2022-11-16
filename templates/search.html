@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>Avodha-shopping</title>
+<meta charset="utf-8">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'hom/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top">
+<!-- End Top Background Image Wrapper -->
+<div class="wrapper row3">
+  <main class="hoc container clear">
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <section id="introblocks">
+      <ul class="nospace group btmspace-80">
+        {% for i in pr %}
+        <li class="one_third">
+          <figure><a class="imgover" href="{{i.get_url}}"><img src="{{i.img.url}}" alt="" style="height:300px;width:300px"></a>
+            <figcaption>
+              <h6 class="heading">{{i.name}}</h6>
+                <p>PRICE:{{i.price}}RS</p>
+                <p>Stock left:{{i.stock}}</p>
+              <p>{{i.desc|truncatewords:10}}</p>
+            </figcaption>
+          </figure>
+        </li>
+          {% endfor %}
+
+      </ul>
+    </section>
+    <!-- ################################################################################################ -->
+    <hr class="btmspace-80">
+    <!-- / main body -->
+  <div class="clear"></div>
+  </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- JAVASCRIPTS -->
+<script src="{% static 'layout/scripts/jquery.min.js' %}"></script>
+<script src="{% static 'hom/layout/scripts/jquery.backtotop.js' %}"></script>
+<script src="{% static 'hom/layout/scripts/jquery.mobilemenu.js' %}"></script>
+{% endblock %}
+</body>
+</html>

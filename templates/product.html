@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{% static 'hom/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+    <link href="{% static 'hom/fontawesome/css/all.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'hom/css/templatemo-comparto.css' %}" rel="stylesheet" />
+    <title>Product details</title>
+</head>
+
+<body>
+  <br><br>
+    <!-- Back to top button -->
+    <div class="container-fluid">
+        <div class="tm-site-header tm-mb-1">
+            <div class="tm-nav-container tm-bg-color-8">
+                <nav class="tm-nav" id="tm-nav">
+                    <ul>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <section class="tm-mb-1" id="about">
+            <div class="tm-row tm-about-row">
+                <div class="tm-section-1-l">
+                    <img src="{{pro.img.url}}" alt="About image" class="tm-img-responsive">
+                </div>
+                <article class="tm-section-1-r tm-bg-color-8">
+                    <h2 class="tm-mb-2 tm-title-color">{{pro.name}}</h2>
+                    <p>Price:{{pro.price}}RS</p>
+                    <p>{{pro.desc}}</p>
+                    <p><b>Available:</b>{{pro.available}}</p>
+                    <p><b>Stock:</b>{{pro.stock}}</p>
+                    {% if pro.stock <= 0 %}
+                        <h1 style="color:red">Sorry...No stock available</h1>
+                    {% else %}
+                        <a href="{% url 'addcart' pro.id %}" class="tm-btn tm-btn-1 tm-link-to-services">Add To Cart</a>
+                    {% endif %}
+                </article>
+            </div>
+        </section>
+    </div> <!-- .container -->
+    <script src="{% static 'hom/js/jquery.min.js' %}"></script> <!-- https://jquery.com/download/ -->
+    <script src="{% static 'hom/js/imagesloaded.pkgd.min.js' %}"></script> <!-- https://imagesloaded.desandro.com/ -->
+    <script src="{% static 'hom/js/isotope.pkgd.min.js' %}"></script> <!-- https://isotope.metafizzy.co/ -->
+    <script src="{% static 'hom/js/jquery.singlePageNav.min.js' %}"></script> <!-- https://github.com/ChrisWojcik/single-page-nav -->
+</body>
+</html>
+{% endblock %}
